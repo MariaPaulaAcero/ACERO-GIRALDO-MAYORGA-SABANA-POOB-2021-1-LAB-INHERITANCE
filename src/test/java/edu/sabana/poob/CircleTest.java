@@ -15,10 +15,10 @@ public class CircleTest {
 
     @BeforeAll
     public static void setUp() {
-        c1 = new Circle(10);
+        c1 = new Circle(10.0);
         c2 = new Circle(14.5);
         c3 = new Circle("red", 23.5);
-        c4 = new Circle();
+        c4 = new Circle(1.0);
     }
 
     @Test
