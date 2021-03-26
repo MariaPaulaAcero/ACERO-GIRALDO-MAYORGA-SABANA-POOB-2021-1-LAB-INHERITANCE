@@ -16,7 +16,7 @@ public class RectangleTest {
     public static void setUp() {
         r1 = new Rectangle(10.0,12.0);
         r2 = new Rectangle(14.5,20.0);
-        r3 = new Rectangle("red",25.5,40.0);
+        r3 = new Rectangle("blue",25.5,40.0);
         r4 = new Rectangle(3.0,1.0);
     }
 
@@ -52,7 +52,7 @@ public class RectangleTest {
 
         assertEquals("This is a Rectangle with color NONE and width 10.0 and lenght 12.0", r1.toString());
         assertEquals("This is a Rectangle with color NONE and width 14.5 and lenght 20.0", r2.toString());
-        assertEquals("This is a Rectangle with color red and width 25.5 and lenght 40.0", r3.toString());
+        assertEquals("This is a Rectangle with color blue and width 25.5 and lenght 40.0", r3.toString());
         assertEquals("This is a Rectangle with color NONE and width 3.0 and lenght 1.0", r4.toString());
     }
 

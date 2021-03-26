@@ -43,9 +43,15 @@ public class Rectangle extends  Shape {
         double perimeter = 2*(this.width+this.lenght);
         return perimeter;
     }
+    public double getWidth(){
+        return width;
+    }
+    public double getLenght(){
+        return lenght;
+    }
 
     public String toString() {
-        return super.toString()+" and width " + width + " and lenght "+lenght;
+        return super.toString()+" and width " + this.width + " and lenght "+this.lenght;
     }
 
 }
