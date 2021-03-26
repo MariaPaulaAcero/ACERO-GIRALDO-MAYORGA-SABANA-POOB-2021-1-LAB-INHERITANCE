@@ -31,10 +31,4 @@ Evidencias de las pruebas del cuadrado
 ![img.png](img.png)
 
 
-=======
-=======
-## Parte 1
-#Evidencias de las pruebas realizadas 
-![img.png](img.png)
-
 
