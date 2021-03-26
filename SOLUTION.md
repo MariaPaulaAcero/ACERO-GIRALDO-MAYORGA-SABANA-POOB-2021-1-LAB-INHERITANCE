@@ -1,10 +1,8 @@
-<<<<<<< HEAD
+
 # SOLUTIONS
-##PARTE 1
-=======
 
 ## PARTE 1
->>>>>>> 402f943f94a08652aec304efc8a28855fb56a994
+
 Evidencias de las pruebas realizadas 
 
 ![img.png](img.png)
@@ -28,7 +26,7 @@ Evidencias de las pruebas del cuadrado
 
 ![img_5.png](img_5.png)
 
-##Parte 1
+##Parte 
 #Evidencias de las pruebas realizadas 
 ![img.png](img.png)
 
@@ -39,4 +37,4 @@ Evidencias de las pruebas del cuadrado
 #Evidencias de las pruebas realizadas 
 ![img.png](img.png)
 
->>>>>>> 402f943f94a08652aec304efc8a28855fb56a994
+
