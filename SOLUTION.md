@@ -25,14 +25,8 @@ Evidencias de las pruebas del cuadrado
 
 ![img_5.png](img_5.png)
 
-<<<<<<< HEAD
+## PARTE 3
 
+![img_8.png](img_8.png)
 
-=======
-##Parte 
-#Evidencias de las pruebas realizadas 
-![img.png](img.png)
-
-
-
->>>>>>> 506eaebe3532d149864ec8a6307a54efa997f2ec
+![img_7.png](img_7.png)

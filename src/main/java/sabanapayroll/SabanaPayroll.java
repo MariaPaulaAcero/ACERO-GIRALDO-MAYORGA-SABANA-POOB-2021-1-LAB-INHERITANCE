@@ -14,20 +14,28 @@ public class SabanaPayroll {
         this.employees = new ArrayList<>();
     }
 
-    public double calculateEmployeesSalary(UUID employeeId){
-        return 0;
-    }
 
-    public double calculateDepartmentSalary(UUID departmentId){
-        return 0;
-    }
 
     public double calculateUniversitySalary(){
-        return 0;
+        double departmentSalary=0;
+        double totalSalary=0;
+
+        for(Department d: departments){
+            departmentSalary = d.calculateDepartmentSalaries();
+            totalSalary = departmentSalary;
+
+        }
+
+        return totalSalary;
     }
 
+
+
     public void printPayroll(){
-        return;
+        for (Department d:departments){
+
+        }
+        System.out.println("");
     }
 
 }
