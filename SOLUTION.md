@@ -30,3 +30,7 @@ Evidencias de las pruebas del cuadrado
 ![img_8.png](img_8.png)
 
 ![img_7.png](img_7.png)
+
+## PARTE 4 
+
+![img_9.png](img_9.png)

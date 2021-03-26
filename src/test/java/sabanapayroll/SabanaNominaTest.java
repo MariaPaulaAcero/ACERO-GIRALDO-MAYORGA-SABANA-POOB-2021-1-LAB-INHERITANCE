@@ -105,7 +105,7 @@ public class SabanaNominaTest {
 
         }
 
-        assertEquals(3344000, departments.);
+        assertEquals(3344000, department.calculateDepartmentSalaries());
 
     }
     @Test
