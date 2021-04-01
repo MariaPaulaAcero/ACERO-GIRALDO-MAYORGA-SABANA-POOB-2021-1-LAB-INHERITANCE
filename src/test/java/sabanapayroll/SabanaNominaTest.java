@@ -11,8 +11,12 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class SabanaNominaTest {
 
+    private static List<Employee> Engineeringemployees;
+    private static List<Employee> FinancesEmployees;
+    private static List<Employee> SalesEmployees;
     private static List<Employee> employees;
     private static List<Department> departments;
+
     private static Department department;
     private static Department department2;
     private static Department department3;
@@ -20,15 +24,13 @@ public class SabanaNominaTest {
     private static SabanaPayroll sabanaPayroll;
 
     private static EmployeeBySalary employeeBySalary;
-    private static EmployeeBySalary employeeBySalary2;
-    private static EmployeeBySalary employeeBySalary3;
-
     private static EmployeeByHours employeeByHours;
-    private static EmployeeByHours employeeByHours2;
-    private static EmployeeByHours employeeByHours3;
-
     private static EmployeeByCommission employeeByCommission;
+    private static EmployeeBySalary employeeBySalary2;
+    private static EmployeeByHours employeeByHours2;
     private static EmployeeByCommission employeeByCommission2;
+    private static EmployeeBySalary employeeBySalary3;
+    private static EmployeeByHours employeeByHours3;
     private static EmployeeByCommission employeeByCommission3;
 
 
@@ -36,37 +38,42 @@ public class SabanaNominaTest {
     public static void setUp(){
 
         department = new Department("Engineering");
+
+        employeeBySalary = new EmployeeBySalary("Sebastian", "Padilla", department, 1200000);
+        employeeByHours = new EmployeeByHours("Camila", "Ramirez", department, 160);
+        employeeByCommission = new EmployeeByCommission("Laura", "Beltrán", department, 156);
+
+        Engineeringemployees = new ArrayList<>();
+        Engineeringemployees.add(employeeBySalary);
+        Engineeringemployees.add(employeeByHours);
+        Engineeringemployees.add(employeeByCommission);
+
         department2 = new Department("Finances");
+
+        employeeBySalary2 = new EmployeeBySalary("Pepe", "Gonzalez", department2, 1400000);
+        employeeByHours2 = new EmployeeByHours("Juan", "Perez", department2, 360);
+        employeeByCommission2 = new EmployeeByCommission("Martin", "Garcia", department2, 90);
+
+        FinancesEmployees = new ArrayList<>();
+        FinancesEmployees.add(employeeBySalary2);
+        FinancesEmployees.add(employeeByHours2);
+        FinancesEmployees.add(employeeByCommission2);
+
         department3 = new Department("Sales");
 
-        employeeBySalary = new EmployeeBySalary("Juan", "Perez", department, 1200000);
-        employeeByHours = new EmployeeByHours("Camila", "Ramirez", department, 160);
-        employeeByCommission = new EmployeeByCommission("Sergio", "Torres", department, 80);
+        employeeBySalary3 = new EmployeeBySalary("Jorge", "Gomez", department, 2340000);
+        employeeByHours3 = new EmployeeByHours("Esteban", "Peñaloza", department, 150);
+        employeeByCommission3 = new EmployeeByCommission("Carolina", "Hernandez", department, 110);
 
-        employeeBySalary2 = new EmployeeBySalary("Pepe", "Giraldo", department2, 1255000);
-        employeeByHours2 = new EmployeeByHours("Mapa", "Mayorga", department2, 180);
-        employeeByCommission2 = new EmployeeByCommission("Sergio", "Acero", department2, 90);
-
-        employeeBySalary3 = new EmployeeBySalary("Carlos", "Pineda", department3, 1355000);
-        employeeByHours3 = new EmployeeByHours("Tatiana", "Ruiz", department3, 200);
-        employeeByCommission3 = new EmployeeByCommission("Tomas", "Garcia", department3, 150);
-
-
-        employees = new ArrayList<>();
-        employees.add(employeeBySalary);
-        employees.add(employeeByHours);
-        employees.add(employeeByCommission);
-
-        departments = new ArrayList<>();
-        departments.add(department2);
-        departments.add(department3);
-        departments.add(department);
-
+        SalesEmployees = new ArrayList<>();
+        SalesEmployees.add(employeeBySalary3);
+        SalesEmployees.add(employeeByHours3);
+        SalesEmployees.add(employeeByCommission3);
 
     }
 
     @Test
-    @DisplayName("GIVEN a salaried emloyeed WHEN calculate salary THEN get right salary")
+    @DisplayName("GIVEN a salaried employee WHEN calculate salary THEN get right salary")
     public void shouldCalculateSalaryBySalary(){
         assertEquals(1104000, employeeBySalary.calculateSalary());
     }
@@ -80,54 +87,44 @@ public class SabanaNominaTest {
     @Test
     @DisplayName("GIVEN a employee working by commission WHEN calculate salary THEN get right salary")
     public void shouldCalculateSalaryByCommission(){
-        assertEquals(1200000, employeeByCommission.calculateSalary());
+        assertEquals(2340000, employeeByCommission.calculateSalary());
     }
 
     @Test
-
+    @DisplayName("GIVEN a department WHEN calculate salary THEN get department salary")
     public void shouldCalculateDepartmentSalaries(){
-        assertEquals(3344000, department.calculateDepartmentSalaries());
+        department = new Department(Engineeringemployees);
+        assertEquals(4484000, department.calculateDepartmentSalaries());
     }
 
     @Test
-
+    @DisplayName("GIVEN the Sabana University WHEN calculate salary THEN get university salary")
     public void shouldCalculateUniversitySalaries(){
-        for(Department d: departments){
-            double engineeringDepartmentSalaries =0;
-            double salesDepartmentSalaries =0;
-            double financesDepartmentSalaries =0;
-            double totalUniversitiesSalaries=0;
-            engineeringDepartmentSalaries= department.calculateDepartmentSalaries();
-            salesDepartmentSalaries = department.calculateDepartmentSalaries();
-            financesDepartmentSalaries = department.calculateDepartmentSalaries();
+        department = new Department(Engineeringemployees);
+        department2 = new Department(FinancesEmployees);
+        department3 = new Department(SalesEmployees);
 
-            totalUniversitiesSalaries = engineeringDepartmentSalaries+financesDepartmentSalaries+salesDepartmentSalaries;
+        departments = new ArrayList<>();
+        departments.add(department);
+        departments.add(department2);
+        departments.add(department3);
 
-        }
-
-        assertEquals(3344000, department.calculateDepartmentSalaries());
+        sabanaPayroll = new SabanaPayroll(employees, departments);
+        assertEquals(14239800, sabanaPayroll.calculateUniversitySalaries());
 
     }
+
+
     @Test
     @DisplayName("GIVEN a employees WHEN toString THEN get right print format")
     public void shouldPrintEmployees(){
+        employees = new ArrayList<>();
+        employees.add(employeeByHours2);
+        employees.add(employeeBySalary3);
+        employees.add(employeeByCommission);
+
+        sabanaPayroll = new SabanaPayroll(employees, departments);
         sabanaPayroll.printPayroll();
-
-        /*for(Employee e: employees){
-            String printValue = e.toString();
-            assertTrue(printValue.contains(e.getName()));
-            assertTrue(printValue.contains(e.getLastName()));
-            assertTrue(printValue.contains(department.getName()));
-            assertTrue(printValue.contains(Integer.toString((int) e.calculateSalary())));
-
-            if (e instanceof EmployeeBySalary)
-                assertTrue(printValue.contains("payment by salary."));
-            if (e instanceof EmployeeByHours)
-                assertTrue(printValue.contains("payment by hours."));
-            if (e instanceof EmployeeByCommission)
-                assertTrue(printValue.contains("payment by comission."));
-*/
-
 
     }
 }

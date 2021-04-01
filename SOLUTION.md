@@ -8,8 +8,7 @@ Evidencias de las pruebas realizadas
 ![img.png](img.png)
 
 Diseño
-
-![img_2.png](img_2.png)
+![img_13.png](img_13.png)
 
 ## PARTE 2
 
@@ -25,6 +24,10 @@ Evidencias de las pruebas del cuadrado
 
 ![img_5.png](img_5.png)
 
+Diseño
+
+![img_12.png](img_12.png)
+
 ## PARTE 3
 
 ![img_8.png](img_8.png)
@@ -32,5 +35,9 @@ Evidencias de las pruebas del cuadrado
 ![img_7.png](img_7.png)
 
 ## PARTE 4 
+Evidencias de las pruebas 
+![img_14.png](img_14.png)
+
+Diagramas
 
 ![img_9.png](img_9.png)

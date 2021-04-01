@@ -2,7 +2,7 @@ package sabanapayroll;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
+
 
 public class SabanaPayroll {
 
@@ -10,32 +10,62 @@ public class SabanaPayroll {
     private List<Department> departments;
 
     public SabanaPayroll() {
-        this.departments = new ArrayList<>();
         this.employees = new ArrayList<>();
+        this.departments = new ArrayList<>();
+    }
+
+    public SabanaPayroll(List<Employee> employees, List<Department> departments) {
+        this.employees = employees;
+        this.departments = departments;
+    }
+
+    public double calculateEmployeeSalary() {
+        double salary = 0;
+        for (Employee e : employees) {
+            if (e instanceof EmployeeByCommission) {
+                salary = e.calculateSalary();
+            }
+            if (e instanceof EmployeeBySalary) {
+                salary = e.calculateSalary();
+            }
+            if (e instanceof EmployeeByHours) {
+                salary = e.calculateSalary();
+            }
+        }
+        return salary;
     }
 
 
+    public double calculateDepartmentSalaries(Department departmentId) {
+        return departmentId.calculateDepartmentSalaries();
+    }
 
-    public double calculateUniversitySalary(){
-        double departmentSalary=0;
-        double totalSalary=0;
 
-        for(Department d: departments){
-            departmentSalary = d.calculateDepartmentSalaries();
-            totalSalary = departmentSalary;
+    public double calculateUniversitySalaries() {
+        double departmentSalaries;
+        double totalSalary = 0;
+        for (Department d : departments) {
+            departmentSalaries = d.calculateDepartmentSalaries();
+            totalSalary += departmentSalaries;
 
         }
-
         return totalSalary;
     }
 
 
-
-    public void printPayroll(){
-        for (Department d:departments){
-
+    public void printPayroll() {
+        String print = "";
+        for (Employee e : employees) {
+            if (e instanceof EmployeeBySalary) {
+                print = e.toString();
+            }
+            if (e instanceof EmployeeByHours) {
+                print = e.toString();
+            }
+            if (e instanceof EmployeeByCommission) {
+                print = e.toString();
+            }
         }
-        System.out.println("");
+        System.out.println(print);
     }
-
 }

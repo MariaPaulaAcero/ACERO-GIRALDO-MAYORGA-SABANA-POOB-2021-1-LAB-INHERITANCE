@@ -22,7 +22,7 @@ public class Employee {
 
     @Override
     public String toString(){
-        return String.format("%s %s, department %s, salario %s,", this.name, this.lastName, this.department.getName(), this.calculateSalary());
+        return String.format("%s %s, department %s, salary %s,", this.name, this.lastName, this.department.getName(), this.calculateSalary());
     }
 
     public String getName(){

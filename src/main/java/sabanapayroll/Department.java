@@ -15,6 +15,10 @@ public class Department {
         this.departmentId = UUID.randomUUID();
     }
 
+    public Department(List<Employee> employees) {
+        this.employees = employees;
+    }
+
     public double calculateDepartmentSalaries(){
         double employeeSalaryBySalary=0;
         double employeeSalaryByHours=0;
@@ -24,15 +28,15 @@ public class Department {
         for(Employee e: employees){
             if(e instanceof EmployeeBySalary){
                 employeeSalaryBySalary =e.calculateSalary();
-                }
-                if(e instanceof  EmployeeByHours){
-                    employeeSalaryByHours =e.calculateSalary();
-                }
-                    if (e instanceof  EmployeeByCommission){
-                        employeeSalaryByCommission =e.calculateSalary();
-                    }
+            }
+            if(e instanceof EmployeeByHours){
+                employeeSalaryByHours =e.calculateSalary();
+            }
+            if (e instanceof EmployeeByCommission){
+                employeeSalaryByCommission =e.calculateSalary();
+            }
 
-            totalSalary = employeeSalaryBySalary+employeeSalaryByCommission+employeeSalaryByCommission;
+            totalSalary = employeeSalaryBySalary+employeeSalaryByHours+employeeSalaryByCommission;
 
         }
 
@@ -42,4 +46,5 @@ public class Department {
     public String getName(){
         return name;
     }
+
 }
